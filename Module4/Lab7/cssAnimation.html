@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Animation</title>
+    <style>
+      #square {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        animation: slide 5s infinite alternate;
+      }
+      @keyframes slide {
+        0% {
+          top: 0;
+          background-color: red;
+        }
+        50% {
+          top: 50%;
+          background-color: yellow;
+        }
+        100% {
+          top: 100%;
+          background-color: green;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="square"></div>
+  </body>
+</html>

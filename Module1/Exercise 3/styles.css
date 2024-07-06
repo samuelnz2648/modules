@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+.container {
+  display: flex;
+  min-height: 100vh;
+  align-items: stretch;
+}
+.column {
+  background: goldenrod;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+button {
+  padding: 10px;
+  background-color: lightblue;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+input {
+  margin-top: 10px;
+  padding: 5px;
+}

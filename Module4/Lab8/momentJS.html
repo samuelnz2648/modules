@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Moment DateTime Format</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  </head>
+  <body>
+    <h2>Moment Date</h2>
+    <div id="displayMoment"></div>
+    <h2>JavaScript Date</h2>
+    <div id="displayJsDate"></div>
+    <script type="text/javascript">
+      (function () {
+        let nowMoment = moment();
+        let nowDate = new Date();
+        let eDisplayMoment = document.getElementById("displayMoment");
+        eDisplayMoment.innerHTML = nowMoment;
+        let eDisplayDate = document.getElementById("displayJsDate");
+        eDisplayDate.innerHTML = nowDate;
+      })();
+    </script>
+  </body>
+</html>

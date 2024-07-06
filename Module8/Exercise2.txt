@@ -1,0 +1,35 @@
+Create your own MongoDB database for a general Blogging application and test it with documents in each collection.
+
+MongoDB Collections and Documents:
+
+1. Users Collection:
+{
+    "UserID": 1,
+    "Username": "john_doe",
+    "Email": "john@example.com",
+    "Password": "hashed_password"
+}
+
+2. Posts Collection:
+{
+    "PostID": 1,
+    "UserID": 1,
+    "Title": "My First Blog Post",
+    "Description": "This is the content of the blog post.",
+    "Image": "image_url"
+}
+
+3. Comments Collection:
+{
+    "CommentID": 1,
+    "PostID": 1,
+    "UserID": 2,
+    "Content": "Great post!"
+}
+
+4. Likes Collection:
+{
+    "LikeID": 1,
+    "PostID": 1,
+    "UserID": 3
+}

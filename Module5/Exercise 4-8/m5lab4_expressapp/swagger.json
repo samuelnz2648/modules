@@ -1,0 +1,217 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Fake eCommerce API",
+    "description": "API documentation for the Fake eCommerce Store"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Friends",
+      "description": "Operations about friends"
+    }
+  ],
+  "paths": {
+    "/friends": {
+      "get": {
+        "tags": ["Friends"],
+        "summary": "Get all friends",
+        "description": "Returns a list of friends",
+        "responses": {
+          "200": {
+            "description": "A list of friends.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Friend"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/friends/filter": {
+      "get": {
+        "tags": ["Friends"],
+        "summary": "Filter friends",
+        "description": "Returns a list of friends filtered by gender or starting letter",
+        "parameters": [
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Gender to filter by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "letter",
+            "in": "query",
+            "description": "Starting letter to filter by",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of friends.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Friend"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/friends/{id}": {
+      "get": {
+        "tags": ["Friends"],
+        "summary": "Get friend by ID",
+        "description": "Returns a single friend",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A single friend.",
+            "schema": {
+              "$ref": "#/definitions/Friend"
+            }
+          },
+          "404": {
+            "description": "Friend not found."
+          }
+        }
+      },
+      "put": {
+        "tags": ["Friends"],
+        "summary": "Update a friend",
+        "description": "Updates a single friend",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Friend"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated friend.",
+            "schema": {
+              "$ref": "#/definitions/Friend"
+            }
+          },
+          "404": {
+            "description": "Friend not found."
+          }
+        }
+      }
+    },
+    "/friends/info": {
+      "get": {
+        "tags": ["Friends"],
+        "summary": "Get request info",
+        "description": "Returns user-agent, content-type, and accept headers",
+        "responses": {
+          "200": {
+            "description": "Request info.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user-agent": {
+                  "type": "string"
+                },
+                "content-type": {
+                  "type": "string"
+                },
+                "accept": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/friends/calculate": {
+      "get": {
+        "tags": ["Calculator"],
+        "summary": "Perform a calculation",
+        "description": "Performs a calculation based on the operation and numbers provided",
+        "parameters": [
+          {
+            "name": "operation",
+            "in": "query",
+            "description": "The operation to perform (add, subtract, multiply, divide)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "num1",
+            "in": "query",
+            "description": "The first number",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "num2",
+            "in": "query",
+            "description": "The second number",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Calculation result.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid operation or parameters."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Friend": {
+      "type": "object",
+      "required": ["id", "name", "gender"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+Design a Logical and Physical Model for a general Blogging application.
+
+Logical Model:
+1. Entities:
+   - Users
+   - Posts
+   - Comments
+   - Likes
+
+2. Attributes:
+   - Users:
+     - UserID (Primary Key)
+     - Username
+     - Email
+     - Password
+   - Posts:
+     - PostID (Primary Key)
+     - UserID (Foreign Key)
+     - Title
+     - Description
+     - Image
+   - Comments:
+     - CommentID (Primary Key)
+     - PostID (Foreign Key)
+     - UserID (Foreign Key)
+     - Content
+   - Likes:
+     - LikeID (Primary Key)
+     - PostID (Foreign Key)
+     - UserID (Foreign Key)
+
+3. Relationships:
+   - A user can create multiple posts (One-to-Many)
+   - A post can have multiple comments (One-to-Many)
+   - A post can have multiple likes (One-to-Many)
+   - A user can like multiple posts (Many-to-Many)
+   - A user can comment on multiple posts (Many-to-Many)
+
+Physical Model:
+- Users Table:
+  CREATE TABLE Users (
+      UserID INT PRIMARY KEY AUTO_INCREMENT,
+      Username VARCHAR(50),
+      Email VARCHAR(50),
+      Password VARCHAR(50)
+  );
+
+- Posts Table:
+  CREATE TABLE Posts (
+      PostID INT PRIMARY KEY AUTO_INCREMENT,
+      UserID INT,
+      Title VARCHAR(100),
+      Description TEXT,
+      Image VARCHAR(100),
+      FOREIGN KEY (UserID) REFERENCES Users(UserID)
+  );
+
+- Comments Table:
+  CREATE TABLE Comments (
+      CommentID INT PRIMARY KEY AUTO_INCREMENT,
+      PostID INT,
+      UserID INT,
+      Content TEXT,
+      FOREIGN KEY (PostID) REFERENCES Posts(PostID),
+      FOREIGN KEY (UserID) REFERENCES Users(UserID)
+  );
+
+- Likes Table:
+  CREATE TABLE Likes (
+      LikeID INT PRIMARY KEY AUTO_INCREMENT,
+      PostID INT,
+      UserID INT,
+      FOREIGN KEY (PostID) REFERENCES Posts(PostID),
+      FOREIGN KEY (UserID) REFERENCES Users(UserID)
+  );

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Web Page</title>
+    <meta name="description" content="A sample web page for HTML learning." />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="John Doe" />
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="form.html">Form</a>
+    </nav>
+    <h1>My HTML learning journey</h1>
+    <article>
+      <h2>Learning elements - div, span, p, pre, ul, li, ol, article</h2>
+      <div>HTML</div>
+      <div>CSS</div>
+      <div>JavaScript</div>
+      <span>Span 1</span> <span>Span 2</span> <span>Span 3</span>
+      <p>p represents paragraph without preserving spacing</p>
+      <pre>
+Text in         a pre element
+is displayed in a fixed-width
+font and it preserves
+both      spaces and
+line breaks
+        </pre
+      >
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>
+          Item 4
+          <ul>
+            <li>Nested Item 1</li>
+            <li>Nested Item 2</li>
+          </ul>
+        </li>
+      </ul>
+      <ol>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+      </ol>
+    </article>
+    <article>
+      <h2>Working with tables</h2>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">First header</th>
+            <th>Third header</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First cell - first row</td>
+            <td>Second cell - first row</td>
+            <td>Third cell - first row</td>
+          </tr>
+          <tr>
+            <td rowspan="2">First cell - second row</td>
+            <td>Second cell - second row</td>
+            <td>Third cell - second row</td>
+          </tr>
+          <tr>
+            <td>Second cell - third row</td>
+            <td>Third cell - third row</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+    <article>
+      <h2>Working with images, video, and audio</h2>
+      <img
+        src="https://picsum.photos/400/400"
+        alt="Random Image"
+        width="300"
+        height="300"
+      />
+      <img
+        src="assets/html_lab_image.jpg"
+        alt="HTML Lab Image"
+        width="300"
+        height="300"
+      />
+      <video controls width="250">
+        <source src="assets/flower.webm" type="video/webm" />
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+      <figure>
+        <audio controls src="assets/t-rex-roar.mp3">
+          Your browser does not support the <code>audio</code> element.
+        </audio>
+        <figcaption>T-Rex Roar Sound</figcaption>
+      </figure>
+    </article>
+  </body>
+</html>

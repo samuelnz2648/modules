@@ -1,0 +1,15 @@
+Using the logical database diagram from Exercise 1, show how Redis could be incorporated into your blogging system to improve performance.
+
+1. Add an extra box representing Redis to your existing diagram.
+   - Redis can be used as a cache for frequently accessed data such as user sessions, popular posts, and comments.
+
+2. Use arrows to indicate the data flow between Redis and the database.
+   - When a user logs in, their session data is stored in Redis.
+   - When a post is accessed frequently, its data is cached in Redis to reduce database load.
+   - Comments for popular posts can also be cached in Redis for quick retrieval.
+
+Diagram:
+ [Client] --> [Web Server] --> [Redis Cache] <--> [Database]
+
+- The web server first checks Redis for cached data.
+- If data is not found in Redis, it retrieves it from the database and then stores it in Redis for future requests.

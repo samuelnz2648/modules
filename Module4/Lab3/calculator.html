@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .calculator {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 200px;
+        margin: auto;
+      }
+      .calculator input,
+      .calculator button {
+        font-size: 2em;
+        padding: 10px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" id="num1" placeholder="Num 1" />
+      <input type="text" id="num2" placeholder="Num 2" />
+      <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/option></option>
+      </select>
+
+      <button onclick="calculate()">=</button>
+      <button onclick="reset()">C</button>
+      <div id="result"></div>
+    </div>
+    <script>
+      function calculate() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        const operator = document.getElementById("operator").value;
+        let result;
+        switch (operator) {
+          case "+":
+            result = num1 + num2;
+            break;
+          case "-":
+            result = num1 - num2;
+            break;
+          case "*":
+            result = num1 * num2;
+            break;
+          case "/":
+            result = num1 / num2;
+            break;
+        }
+        document.getElementById("result").innerText = result;
+      }
+      function reset() {
+        document.getElementById("num1").value = "";
+        document.getElementById("num2").value = "";
+        document.getElementById("result").innerText = "";
+      }
+    </script>
+  </body>
+</html>

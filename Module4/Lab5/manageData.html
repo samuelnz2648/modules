@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .news-item {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="news-container"></div>
+    <script>
+      let news = [
+        {
+          id: 1,
+          title: "Election Results",
+          content: "Newly elected minister...",
+        },
+        { id: 2, title: "Sporting Success", content: "World Cup winners..." },
+        {
+          id: 3,
+          title: "Tornado Warning",
+          content: "Residents should prepare...",
+        },
+      ];
+
+      function populateNews() {
+        const container = document.getElementById("news-container");
+        container.innerHTML = "";
+        news.forEach((item) => {
+          const newsItem = document.createElement("div");
+          newsItem.className = "news-item";
+          newsItem.innerHTML = `<h3>${item.title}</h3><p>${item.content}</p>`;
+          container.appendChild(newsItem);
+        });
+      }
+
+      setInterval(populateNews, 5000);
+
+      window.onload = populateNews;
+    </script>
+  </body>
+</html>
